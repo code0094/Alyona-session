@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Задание 2 — Объекты JS</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <h1>Задание 2</h1>
+
+  <section>
+    <h2>1. Формы</h2>
+
+    <h3>1.1. Калькулятор: a − b</h3>
+    <p class="desc">Форма из трёх полей. Введите числа в первые два, нажмите кнопку — в третьем появится разность.</p>
+    <input id="a" type="text">
+    <span>−</span>
+    <input id="b" type="text">
+    <button onclick="calculate()">=</button>
+    <input id="result" type="text" readonly>
+
+    <h3>1.2. Пары radio + text</h3>
+    <p class="desc">При выборе radio активируется его текстовое поле, остальные блокируются. Использует event.target, не зависит от количества пар.</p>
+    <div id="radioGroup">
+      <label><input type="radio" name="g" onchange="toggleRadio(event)"> <input type="text" disabled></label>
+      <label><input type="radio" name="g" onchange="toggleRadio(event)"> <input type="text" disabled></label>
+      <label><input type="radio" name="g" onchange="toggleRadio(event)"> <input type="text" disabled></label>
+      <label><input type="radio" name="g" onchange="toggleRadio(event)"> <input type="text" disabled></label>
+    </div>
+  </section>
+
+  <section>
+    <h2>2. Объект Window</h2>
+    <p class="desc">Кнопка открывает новое окно 100×200 со страницей, на которой есть кнопка «Закрыть».</p>
+    <button onclick="openWin()">Открыть окно</button>
+  </section>
+
+  <section>
+    <h2>3. Объект Document</h2>
+    <p class="desc">По клику на кнопку картинка меняется на следующую из набора (5 штук, по кругу).</p>
+    <img id="pizzaImg" src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400" alt="Пицца">
+    <button onclick="nextPizza()">Следующая пицца</button>
+  </section>
+
+  <section>
+    <h2>4. Объект Style</h2>
+
+    <h3>4.1. Цвета абзаца</h3>
+    <p class="desc">Два поля color и кнопка. По клику меняется цвет текста и фона выбранного абзаца.</p>
+    <label>Цвет текста: <input id="textColor" type="color" value="#000000"></label>
+    <label>Цвет фона: <input id="bgColor" type="color" value="#ffffff"></label>
+    <button onclick="applyColors()">Применить</button>
+    <p id="targetPara">Этот абзац меняет цвета по кнопке.</p>
+
+    <h3>4.2. Жирный курсив по клику</h3>
+    <p class="desc">Кликни по тексту — он станет жирным и курсивом.</p>
+    <p onclick="this.style.fontWeight='bold'; this.style.fontStyle='italic'">Кликни на этот текст.</p>
+
+    <h3>4.3. Рамка по клику</h3>
+    <p class="desc">Кликни — появится цветная рамка со скруглёнными углами.</p>
+    <p onclick="this.style.border='2px solid #c0392b'; this.style.borderRadius='8px'; this.style.padding='8px'">Кликни сюда, чтобы появилась рамка.</p>
+  </section>
+
+  <section>
+    <h2>5. Свойство innerHTML</h2>
+    <p class="desc">Сумма двух чисел подставляется в span через innerHTML вместо слова «Результат».</p>
+    <input id="x" type="text"> +
+    <input id="y" type="text"> =
+    <button onclick="sumInner()">Сложить</button>
+    <span id="resSpan">Результат</span>
+  </section>
+
+  <script>
+    function calculate() {
+      const a = Number(document.getElementById('a').value);
+      const b = Number(document.getElementById('b').value);
+      document.getElementById('result').value = a - b;
+    }
+
+    function toggleRadio(event) {
+      const group = document.getElementById('radioGroup');
+      group.querySelectorAll('input[type="text"]').forEach(t => t.disabled = true);
+      event.target.parentElement.querySelector('input[type="text"]').disabled = false;
+    }
+
+    function openWin() {
+      window.open('popup.html', '_blank', 'width=100,height=200');
+    }
+
+    const pizzas = [
+      'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400',
+      'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400',
+      'https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=400',
+      'https://images.unsplash.com/photo-1628840042765-356cda07504e?w=400',
+      'https://images.unsplash.com/photo-1593504049359-74330189a345?w=400'
+    ];
+    let pizzaIdx = 0;
+    function nextPizza() {
+      pizzaIdx = (pizzaIdx + 1) % pizzas.length;
+      document.getElementById('pizzaImg').src = pizzas[pizzaIdx];
+    }
+
+    function applyColors() {
+      const p = document.getElementById('targetPara');
+      p.style.color = document.getElementById('textColor').value;
+      p.style.backgroundColor = document.getElementById('bgColor').value;
+    }
+
+    function sumInner() {
+      const x = Number(document.getElementById('x').value);
+      const y = Number(document.getElementById('y').value);
+      document.getElementById('resSpan').innerHTML = x + y;
+    }
+  </script>
+
+</body>
+</html>
