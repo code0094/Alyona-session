@@ -37,8 +37,6 @@ body {
 .card {
   background: #cfe2f3;
   padding: 12px;
-  display: flex;
-  flex-direction: column;
 }
 
 .card img {

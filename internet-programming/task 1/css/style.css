@@ -46,7 +46,6 @@ body {
 }
 
 .sidebar ul {
-  list-style: disc;
   padding-left: 20px;
 }
 
@@ -85,7 +84,6 @@ body {
   width: 220px;
   height: 150px;
   object-fit: cover;
-  flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
