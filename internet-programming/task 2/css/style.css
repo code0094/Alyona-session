@@ -1,0 +1,71 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #222;
+  background: #fff;
+  line-height: 1.5;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+h1 {
+  margin-bottom: 24px;
+}
+
+section {
+  border-bottom: 1px solid #ddd;
+  padding: 16px 0;
+}
+
+h2 {
+  margin-bottom: 12px;
+}
+
+h3 {
+  margin: 16px 0 8px;
+}
+
+.desc {
+  font-style: italic;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+input[type="text"] {
+  padding: 4px 8px;
+  width: 120px;
+}
+
+input[type="color"] {
+  vertical-align: middle;
+}
+
+button {
+  padding: 4px 12px;
+  margin: 0 4px;
+  cursor: pointer;
+}
+
+#pizzaImg {
+  width: 300px;
+  height: auto;
+  display: block;
+  margin-bottom: 8px;
+}
+
+#radioGroup label {
+  display: block;
+  margin-bottom: 6px;
+}
+
+#targetPara {
+  padding: 12px;
+  margin-top: 12px;
+  border: 1px solid #ddd;
+}
