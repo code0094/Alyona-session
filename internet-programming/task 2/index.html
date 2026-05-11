@@ -15,20 +15,22 @@
 
     <h3>1.1. Калькулятор: a − b</h3>
     <p class="desc">Форма из трёх полей. Введите числа в первые два, нажмите кнопку — в третьем появится разность.</p>
-    <input id="a" type="text">
-    <span>−</span>
-    <input id="b" type="text">
-    <button onclick="calculate()">=</button>
-    <input id="result" type="text" readonly>
+    <form>
+      <input id="a" type="text">
+      <span>−</span>
+      <input id="b" type="text">
+      <button type="button" onclick="calculate()">=</button>
+      <input id="result" type="text" readonly>
+    </form>
 
     <h3>1.2. Пары radio + text</h3>
     <p class="desc">При выборе radio активируется его текстовое поле, остальные блокируются. Использует event.target, не зависит от количества пар.</p>
-    <div id="radioGroup">
+    <form id="radioGroup">
       <label><input type="radio" name="g" onchange="toggleRadio(event)"> <input type="text" disabled></label>
       <label><input type="radio" name="g" onchange="toggleRadio(event)"> <input type="text" disabled></label>
       <label><input type="radio" name="g" onchange="toggleRadio(event)"> <input type="text" disabled></label>
       <label><input type="radio" name="g" onchange="toggleRadio(event)"> <input type="text" disabled></label>
-    </div>
+    </form>
   </section>
 
   <section>
