@@ -28,15 +28,17 @@
   <script>
     function checkBalance(str) {
       let counter = 0;
+      let hasUpper = false;
       for (const ch of str) {
         if (ch !== ch.toLowerCase() && ch === ch.toUpperCase()) {
           counter++;
+          hasUpper = true;
         } else if (ch === '.' || ch === '?' || ch === '!') {
           counter--;
           if (counter < 0) return "Error";
         }
       }
-      return counter === 0 ? "O'key" : "Error";
+      return counter === 0 && hasUpper ? "O'key" : "Error";
     }
 
     function check() {
