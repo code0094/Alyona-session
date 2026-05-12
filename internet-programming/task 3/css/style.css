@@ -92,15 +92,6 @@ button {
   cursor: pointer;
 }
 
-ul {
-  padding-left: 20px;
-  margin-top: 8px;
-}
-
-li {
-  margin-bottom: 4px;
-}
-
 table {
   width: 100%;
   border-collapse: collapse;
