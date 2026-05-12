@@ -1,7 +1,9 @@
 .logo-block {
   background: #fff3cd;
   padding: 24px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .logo-block h1 {
