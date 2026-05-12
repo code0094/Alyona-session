@@ -103,6 +103,25 @@
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
+@media (max-width: 1024px) {
+  .hero-block {
+    padding: 36px 24px;
+  }
+
+  .hero-block h2 {
+    font-size: 28px;
+  }
+
+  .content-block,
+  .sidebar-block {
+    padding: 24px;
+  }
+
+  .carousel-item img {
+    height: 320px;
+  }
+}
+
 @media (max-width: 768px) {
   .logo-block h1 {
     font-size: 40px;
