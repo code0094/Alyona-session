@@ -1,6 +1,6 @@
 .logo-block {
   background: #fff3cd;
-  padding: 24px;
+  padding: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,7 +8,8 @@
 
 .logo-block h1 {
   margin: 0;
-  font-size: 32px;
+  font-size: 64px;
+  line-height: 1;
 }
 
 .hero-block {
@@ -103,6 +104,10 @@
 }
 
 @media (max-width: 768px) {
+  .logo-block h1 {
+    font-size: 40px;
+  }
+
   .hero-block {
     padding: 32px 20px;
   }
