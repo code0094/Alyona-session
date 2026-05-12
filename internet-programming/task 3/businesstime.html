@@ -13,22 +13,27 @@
     <h1>3. isBusinessTime</h1>
   </header>
 
-  <section class="task">
+  <section>
     <h2>Текст задания</h2>
     <p>Напишите функцию isBusinessTime. Ваша функция должна возвращать true, если экземпляр Date, в контексте которого она вызвана, задаёт рабочее время и false в противном случае. Рабочим временем считайте время с 8 до 17 часов во все дни, кроме субботы и воскресенья. Напишите программу с тестами для демонстрации работы вашей функции.</p>
   </section>
 
-  <section class="implementation">
+  <section>
     <h2>Тесты</h2>
     <table>
-      <thead>
-        <tr>
-          <th>Дата и время</th>
-          <th>День недели</th>
-          <th>isBusinessTime()</th>
-        </tr>
-      </thead>
-      <tbody id="tests"></tbody>
+      <tr>
+        <th>Дата</th>
+        <th>Время</th>
+        <th>День</th>
+        <th>isBusinessTime()</th>
+      </tr>
+      <tr><td>11.05.2026</td><td>10:00</td><td>Понедельник</td><td id="r1"></td></tr>
+      <tr><td>11.05.2026</td><td>08:00</td><td>Понедельник</td><td id="r2"></td></tr>
+      <tr><td>11.05.2026</td><td>07:59</td><td>Понедельник</td><td id="r3"></td></tr>
+      <tr><td>11.05.2026</td><td>16:59</td><td>Понедельник</td><td id="r4"></td></tr>
+      <tr><td>11.05.2026</td><td>17:00</td><td>Понедельник</td><td id="r5"></td></tr>
+      <tr><td>16.05.2026</td><td>10:00</td><td>Суббота</td><td id="r6"></td></tr>
+      <tr><td>17.05.2026</td><td>10:00</td><td>Воскресенье</td><td id="r7"></td></tr>
     </table>
   </section>
 
@@ -39,31 +44,13 @@
       return day !== 0 && day !== 6 && hour >= 8 && hour < 17;
     };
 
-    const days = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
-
-    const cases = [
-      new Date(2026, 4, 11, 10, 0),
-      new Date(2026, 4, 11, 8, 0),
-      new Date(2026, 4, 11, 7, 59),
-      new Date(2026, 4, 11, 16, 59),
-      new Date(2026, 4, 11, 17, 0),
-      new Date(2026, 4, 16, 10, 0),
-      new Date(2026, 4, 17, 10, 0)
-    ];
-
-    function fmt(d) {
-      const pad = n => String(n).padStart(2, '0');
-      return `${pad(d.getDate())}.${pad(d.getMonth() + 1)}.${d.getFullYear()} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
-    }
-
-    const tbody = document.getElementById('tests');
-    for (const d of cases) {
-      const tr = document.createElement('tr');
-      const result = d.isBusinessTime();
-      const cls = result ? 'ok' : 'err';
-      tr.innerHTML = `<td>${fmt(d)}</td><td>${days[d.getDay()]}</td><td class="${cls}">${result}</td>`;
-      tbody.appendChild(tr);
-    }
+    document.getElementById('r1').textContent = new Date(2026, 4, 11, 10, 0).isBusinessTime();
+    document.getElementById('r2').textContent = new Date(2026, 4, 11, 8, 0).isBusinessTime();
+    document.getElementById('r3').textContent = new Date(2026, 4, 11, 7, 59).isBusinessTime();
+    document.getElementById('r4').textContent = new Date(2026, 4, 11, 16, 59).isBusinessTime();
+    document.getElementById('r5').textContent = new Date(2026, 4, 11, 17, 0).isBusinessTime();
+    document.getElementById('r6').textContent = new Date(2026, 4, 16, 10, 0).isBusinessTime();
+    document.getElementById('r7').textContent = new Date(2026, 4, 17, 10, 0).isBusinessTime();
   </script>
 
 </body>

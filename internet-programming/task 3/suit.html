@@ -13,12 +13,12 @@
     <h1>1. Случайная масть</h1>
   </header>
 
-  <section class="task">
+  <section>
     <h2>Текст задания</h2>
     <p>Создать HTML-страницу, которая при загрузке случайным образом выводит одну из четырёх карточных мастей.</p>
   </section>
 
-  <section class="implementation">
+  <section>
     <h2>Результат</h2>
     <div class="suit-display">
       <div id="suit-symbol" class="suit-symbol"></div>
@@ -27,17 +27,14 @@
   </section>
 
   <script>
-    const suits = [
-      { symbol: '♠', name: 'Пики', red: false },
-      { symbol: '♥', name: 'Червы', red: true },
-      { symbol: '♦', name: 'Бубны', red: true },
-      { symbol: '♣', name: 'Трефы', red: false }
-    ];
-    const pick = suits[Math.floor(Math.random() * suits.length)];
+    const symbols = ['♠', '♥', '♦', '♣'];
+    const names = ['Пики', 'Червы', 'Бубны', 'Трефы'];
+    const colors = ['black', 'red', 'red', 'black'];
+    const n = Math.floor(Math.random() * 4);
     const sym = document.getElementById('suit-symbol');
-    sym.textContent = pick.symbol;
-    if (pick.red) sym.classList.add('red');
-    document.getElementById('suit-name').textContent = pick.name;
+    sym.textContent = symbols[n];
+    sym.style.color = colors[n];
+    document.getElementById('suit-name').textContent = names[n];
   </script>
 
 </body>

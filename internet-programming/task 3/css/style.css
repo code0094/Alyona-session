@@ -43,16 +43,6 @@ h3 {
 
 section {
   margin-bottom: 20px;
-  padding: 16px;
-  border-radius: 4px;
-}
-
-.task {
-  background: #fff5b8;
-}
-
-.implementation {
-  background: #f0f0f0;
 }
 
 nav ul {
@@ -69,7 +59,6 @@ nav a {
   background: #cfe2f3;
   color: #222;
   text-decoration: none;
-  border-radius: 4px;
 }
 
 .suit-display {
@@ -80,10 +69,6 @@ nav a {
 .suit-symbol {
   font-size: 120px;
   line-height: 1;
-}
-
-.suit-symbol.red {
-  color: #c0392b;
 }
 
 .suit-name {
@@ -107,39 +92,19 @@ button {
   cursor: pointer;
 }
 
-.result {
-  margin-top: 12px;
-  padding: 8px 12px;
-  font-weight: bold;
-  min-height: 36px;
-  border-radius: 4px;
-}
-
-.result.ok {
-  background: #d9ead3;
-}
-
-.result.err {
-  background: #f4cccc;
-}
-
-.examples {
-  list-style: none;
+ul {
+  padding-left: 20px;
   margin-top: 8px;
 }
 
-.examples li {
-  padding: 6px 10px;
-  background: #fff;
+li {
   margin-bottom: 4px;
-  cursor: pointer;
-  border: 1px solid #ddd;
-  border-radius: 4px;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
+  margin-top: 8px;
 }
 
 th, td {
@@ -150,14 +115,4 @@ th, td {
 
 th {
   background: #e8e8e8;
-}
-
-td.ok {
-  color: #27ae60;
-  font-weight: bold;
-}
-
-td.err {
-  color: #c0392b;
-  font-weight: bold;
 }
