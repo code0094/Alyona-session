@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Подзадача 3 — isBusinessTime</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <a href="index.html">← К списку</a>
+    <h1>3. isBusinessTime</h1>
+  </header>
+
+  <section class="task">
+    <h2>Текст задания</h2>
+    <p>Напишите функцию isBusinessTime. Ваша функция должна возвращать true, если экземпляр Date, в контексте которого она вызвана, задаёт рабочее время и false в противном случае. Рабочим временем считайте время с 8 до 17 часов во все дни, кроме субботы и воскресенья. Напишите программу с тестами для демонстрации работы вашей функции.</p>
+  </section>
+
+  <section class="implementation">
+    <h2>Тесты</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Дата и время</th>
+          <th>День недели</th>
+          <th>isBusinessTime()</th>
+        </tr>
+      </thead>
+      <tbody id="tests"></tbody>
+    </table>
+  </section>
+
+  <script>
+    Date.prototype.isBusinessTime = function () {
+      const day = this.getDay();
+      const hour = this.getHours();
+      return day !== 0 && day !== 6 && hour >= 8 && hour < 17;
+    };
+
+    const days = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+
+    const cases = [
+      new Date(2026, 4, 11, 10, 0),
+      new Date(2026, 4, 11, 8, 0),
+      new Date(2026, 4, 11, 7, 59),
+      new Date(2026, 4, 11, 16, 59),
+      new Date(2026, 4, 11, 17, 0),
+      new Date(2026, 4, 16, 10, 0),
+      new Date(2026, 4, 17, 10, 0)
+    ];
+
+    function fmt(d) {
+      const pad = n => String(n).padStart(2, '0');
+      return `${pad(d.getDate())}.${pad(d.getMonth() + 1)}.${d.getFullYear()} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+    }
+
+    const tbody = document.getElementById('tests');
+    for (const d of cases) {
+      const tr = document.createElement('tr');
+      const result = d.isBusinessTime();
+      const cls = result ? 'ok' : 'err';
+      tr.innerHTML = `<td>${fmt(d)}</td><td>${days[d.getDay()]}</td><td class="${cls}">${result}</td>`;
+      tbody.appendChild(tr);
+    }
+  </script>
+
+</body>
+</html>

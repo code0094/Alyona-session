@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Подзадача 2 — Баланс</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <a href="index.html">← К списку</a>
+    <h1>2. Баланс заглавных букв и знаков препинания</h1>
+  </header>
+
+  <section class="task">
+    <h2>Текст задания</h2>
+    <p>Написать функцию, которая проверяет, что в строке, переданной в качестве аргумента, соблюдается баланс заглавных букв и знаков препинания в предложении (не учитываем возможные имена и названия городов). При этом необходимо учесть, что заглавная буква должна появиться раньше точки, вопросительного или восклицательного знака. Функция возвращает строку «O'key» при соблюдении такого баланса, и «Error» в противном случае.</p>
+  </section>
+
+  <section class="implementation">
+    <h2>Проверка</h2>
+    <textarea id="input" placeholder="Введите строку..."></textarea>
+    <button onclick="check()">Проверить</button>
+    <div id="result" class="result"></div>
+
+    <h3>Примеры (кликни, чтобы подставить)</h3>
+    <ul class="examples">
+      <li onclick="setExample(this)">Привет. Как дела? Хорошо!</li>
+      <li onclick="setExample(this)">Hello. World.</li>
+      <li onclick="setExample(this)">hello.</li>
+      <li onclick="setExample(this)">Hello world</li>
+      <li onclick="setExample(this)">. Hello</li>
+    </ul>
+  </section>
+
+  <script>
+    function checkBalance(str) {
+      let counter = 0;
+      for (const ch of str) {
+        if (ch !== ch.toLowerCase() && ch === ch.toUpperCase()) {
+          counter++;
+        } else if (ch === '.' || ch === '?' || ch === '!') {
+          counter--;
+          if (counter < 0) return "Error";
+        }
+      }
+      return counter === 0 ? "O'key" : "Error";
+    }
+
+    function check() {
+      const str = document.getElementById('input').value;
+      const result = checkBalance(str);
+      const out = document.getElementById('result');
+      out.textContent = result;
+      out.className = 'result ' + (result === "O'key" ? 'ok' : 'err');
+    }
+
+    function setExample(el) {
+      document.getElementById('input').value = el.textContent;
+      check();
+    }
+  </script>
+
+</body>
+</html>
