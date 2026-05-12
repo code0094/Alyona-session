@@ -31,12 +31,6 @@ h3 {
   margin: 16px 0 8px;
 }
 
-.desc {
-  font-style: italic;
-  color: #666;
-  margin-bottom: 8px;
-}
-
 input[type="text"] {
   padding: 4px 8px;
   width: 120px;

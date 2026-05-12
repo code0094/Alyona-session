@@ -14,7 +14,6 @@
     <h2>1. Формы</h2>
 
     <h3>1.1. Калькулятор: a − b</h3>
-    <p class="desc">Форма из трёх полей. Введите числа в первые два, нажмите кнопку — в третьем появится разность.</p>
     <form>
       <input id="a" type="text">
       <span>−</span>
@@ -24,7 +23,6 @@
     </form>
 
     <h3>1.2. Пары radio + text</h3>
-    <p class="desc">При выборе radio активируется его текстовое поле, остальные блокируются. Использует event.target, не зависит от количества пар.</p>
     <form id="radioGroup">
       <label><input type="radio" name="g" onchange="toggleRadio(event)"> <input type="text" disabled></label>
       <label><input type="radio" name="g" onchange="toggleRadio(event)"> <input type="text" disabled></label>
@@ -35,13 +33,11 @@
 
   <section>
     <h2>2. Объект Window</h2>
-    <p class="desc">Кнопка открывает новое окно 100×200 со страницей, на которой есть кнопка «Закрыть».</p>
     <button onclick="openWin()">Открыть окно</button>
   </section>
 
   <section>
     <h2>3. Объект Document</h2>
-    <p class="desc">По клику на кнопку картинка меняется на следующую из набора (5 штук, по кругу).</p>
     <img id="pizzaImg" src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400" alt="Пицца">
     <button onclick="nextPizza()">Следующая пицца</button>
   </section>
@@ -50,24 +46,20 @@
     <h2>4. Объект Style</h2>
 
     <h3>4.1. Цвета абзаца</h3>
-    <p class="desc">Два поля color и кнопка. По клику меняется цвет текста и фона выбранного абзаца.</p>
     <label>Цвет текста: <input id="textColor" type="color" value="#000000"></label>
     <label>Цвет фона: <input id="bgColor" type="color" value="#ffffff"></label>
     <button onclick="applyColors()">Применить</button>
     <p id="targetPara">Этот абзац меняет цвета по кнопке.</p>
 
     <h3>4.2. Жирный курсив по клику</h3>
-    <p class="desc">Кликни по тексту — он станет жирным и курсивом.</p>
     <p onclick="this.style.fontWeight='bold'; this.style.fontStyle='italic'">Кликни на этот текст.</p>
 
     <h3>4.3. Рамка по клику</h3>
-    <p class="desc">Кликни — появится цветная рамка со скруглёнными углами.</p>
     <p onclick="this.style.border='2px solid #c0392b'; this.style.borderRadius='8px'; this.style.padding='8px'">Кликни сюда, чтобы появилась рамка.</p>
   </section>
 
   <section>
     <h2>5. Свойство innerHTML</h2>
-    <p class="desc">Сумма двух чисел подставляется в span через innerHTML вместо слова «Результат».</p>
     <input id="x" type="text"> +
     <input id="y" type="text"> =
     <button onclick="sumInner()">Сложить</button>
