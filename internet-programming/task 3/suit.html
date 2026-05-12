@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Подзадача 1 — Случайная масть</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <a href="index.html">← К списку</a>
+    <h1>1. Случайная масть</h1>
+  </header>
+
+  <section class="task">
+    <h2>Текст задания</h2>
+    <p>Создать HTML-страницу, которая при загрузке случайным образом выводит одну из четырёх карточных мастей.</p>
+  </section>
+
+  <section class="implementation">
+    <h2>Результат</h2>
+    <div class="suit-display">
+      <div id="suit-symbol" class="suit-symbol"></div>
+      <div id="suit-name" class="suit-name"></div>
+    </div>
+  </section>
+
+  <script>
+    const suits = [
+      { symbol: '♠', name: 'Пики', red: false },
+      { symbol: '♥', name: 'Червы', red: true },
+      { symbol: '♦', name: 'Бубны', red: true },
+      { symbol: '♣', name: 'Трефы', red: false }
+    ];
+    const pick = suits[Math.floor(Math.random() * suits.length)];
+    const sym = document.getElementById('suit-symbol');
+    sym.textContent = pick.symbol;
+    if (pick.red) sym.classList.add('red');
+    document.getElementById('suit-name').textContent = pick.name;
+  </script>
+
+</body>
+</html>
