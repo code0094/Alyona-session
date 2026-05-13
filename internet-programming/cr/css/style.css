@@ -1,15 +1,35 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #2b1d18;
+  background: #fffaf2;
+  line-height: 1.5;
+}
+
+.page {
+  width: 100%;
+}
+
+.top-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
 .logo-block {
   background: #fff3cd;
-  padding: 16px;
+  padding: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .logo-block h1 {
-  margin: 0;
-  font-size: 64px;
-  line-height: 1;
+  font-size: 52px;
 }
 
 .hero-block {
@@ -17,16 +37,15 @@
   background-size: cover;
   background-position: center;
   color: white;
-  padding: 48px 32px;
+  padding: 56px 40px;
 }
 
 .hero-block h2 {
-  margin: 0 0 8px;
-  font-size: 32px;
+  font-size: 34px;
+  margin-bottom: 8px;
 }
 
 .hero-block p {
-  margin: 0;
   font-size: 18px;
 }
 
@@ -50,26 +69,70 @@
   transform: scale(1.1);
 }
 
+.middle-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
 .content-block {
+  background: white;
   padding: 32px;
 }
 
 .content-block h3 {
-  margin: 24px 0 12px;
+  font-size: 24px;
+  margin: 24px 0 10px;
+}
+
+.content-block p {
+  margin-bottom: 12px;
 }
 
 .carousel {
-  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 18px;
+  background: #f2efe9;
 }
 
-.carousel-item img {
-  height: 400px;
+.carousel img {
+  width: 100%;
+  height: 420px;
+  display: block;
   object-fit: cover;
   transition: 0.3s;
 }
 
-.carousel-item:hover img {
+.carousel:hover img {
   opacity: 0.9;
+}
+
+.carousel-prev,
+.carousel-next {
+  position: absolute;
+  top: 45%;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  color: white;
+  background: rgba(0,0,0,0.45);
+  font-size: 34px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.carousel-prev {
+  left: 16px;
+}
+
+.carousel-next {
+  right: 16px;
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+  background: rgba(0,0,0,0.7);
 }
 
 .sidebar-block {
@@ -78,6 +141,7 @@
 }
 
 .sidebar-block h3 {
+  font-size: 24px;
   margin-bottom: 16px;
 }
 
@@ -94,18 +158,91 @@
   justify-content: space-between;
 }
 
-.footer-block .btn {
+.footer-block button,
+.modal-box button {
+  border: 0;
+  background: #ffc107;
+  color: #2b1d18;
+  padding: 9px 16px;
+  font-weight: bold;
+  cursor: pointer;
   transition: 0.2s;
 }
 
-.footer-block .btn:hover {
+.footer-block button:hover,
+.modal-box button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-open {
+  display: flex;
+}
+
+.modal-box {
+  width: 100%;
+  max-width: 460px;
+  background: white;
+  padding: 24px;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.modal-header h3 {
+  font-size: 22px;
+}
+
+.close-button {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  font-size: 24px;
+}
+
+.modal-box label {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+
+.modal-box input,
+.modal-box textarea {
+  width: 100%;
+  margin-top: 4px;
+  padding: 8px;
+  border: 1px solid #b8aaa3;
+  font-family: inherit;
+  font-size: 15px;
+}
+
+.form-error {
+  min-height: 22px;
+  margin-bottom: 8px;
+  color: #b00020;
+  font-weight: bold;
 }
 
 @media (max-width: 1024px) {
   .hero-block {
-    padding: 36px 24px;
+    padding: 40px 28px;
   }
 
   .hero-block h2 {
@@ -117,28 +254,19 @@
     padding: 24px;
   }
 
-  .carousel-item img {
-    height: 320px;
+  .carousel img {
+    height: 330px;
   }
 }
 
 @media (max-width: 768px) {
-  body {
-    background: #e8e8e8;
+  .top-row,
+  .middle-row {
+    grid-template-columns: 1fr;
   }
 
-  .logo-block,
-  .hero-block,
-  .menu-block,
-  .content-block,
-  .sidebar-block,
-  .footer-block {
-    margin-bottom: 4px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
-  }
-
-  .content-block {
-    background: white;
+  .logo-block {
+    padding: 18px;
   }
 
   .logo-block h1 {
@@ -153,18 +281,13 @@
     font-size: 24px;
   }
 
-  .content-block,
-  .sidebar-block {
-    padding: 20px;
-  }
-
   .menu-block {
     flex-direction: column;
     gap: 8px;
     align-items: center;
   }
 
-  .carousel-item img {
+  .carousel img {
     height: 250px;
   }
 
