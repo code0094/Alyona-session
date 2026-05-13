@@ -123,6 +123,24 @@
 }
 
 @media (max-width: 768px) {
+  body {
+    background: #e8e8e8;
+  }
+
+  .logo-block,
+  .hero-block,
+  .menu-block,
+  .content-block,
+  .sidebar-block,
+  .footer-block {
+    margin-bottom: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+  }
+
+  .content-block {
+    background: white;
+  }
+
   .logo-block h1 {
     font-size: 40px;
   }
